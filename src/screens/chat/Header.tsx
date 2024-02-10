@@ -1,40 +1,21 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import {dispayPictureSize} from '../../utils/constants/dimentions';
+import {profileImageAsIcon} from '../../utils/constants/dimentions';
 import {POPPINS} from '../../utils/constants/fonts';
+import {COLORS} from '../../utils/constants/colors';
+import { DUMMY_PROFILE_IMAGE } from '../../utils/constants/images';
 
 const Header = () => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}>
-      <View
-        style={{
-          backgroundColor: '#383d51',
-          padding: 10,
-          borderRadius: 50,
-        }}>
-        <Icon name="search" size={30} color="white" />
+    <View style={styles.container}>
+      <View style={styles.searchIconContainer}>
+        <Icon name="search" size={30} color={COLORS.white} />
       </View>
-      <Text
-        style={{
-          color: 'white',
-          fontFamily: POPPINS.Medium,
-          fontSize: 20,
-        }}>
-        Home
-      </Text>
+      <Text style={styles.headerText}>Home</Text>
       <Image
-        style={{
-          height: 44,
-          width: 44,
-          borderRadius: 44 / 2,
-        }}
-        source={require('../../assets/images/user-dp.jpg')}
+        style={styles.profileImage}
+        source={DUMMY_PROFILE_IMAGE}
       />
     </View>
   );
@@ -42,4 +23,26 @@ const Header = () => {
 
 export default Header;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  searchIconContainer: {
+    backgroundColor: COLORS.lightgray,
+    opacity:0.8,
+    padding: 10,
+    borderRadius: 50,
+  },
+  headerText: {
+    color: COLORS.white,
+    fontFamily: POPPINS.Medium,
+    fontSize: 20,
+  },
+  profileImage: {
+    height: profileImageAsIcon,
+    width: profileImageAsIcon,
+    borderRadius: profileImageAsIcon / 2,
+  },
+});

@@ -1,9 +1,12 @@
 import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../utils/constants/colors';
+import {LOGO} from '../../utils/constants/images';
+import {THEME} from '../../utils/constants';
+import { Ttheme } from '../../interfaces';
 
 interface ISsoLogins {
-  theme?: 'light' | 'dark';
+  theme?: Ttheme;
 }
 
 interface IIconWrapper {
@@ -22,25 +25,15 @@ const IconWrapper = ({isLightTheme, path}: IIconWrapper) => (
 );
 
 const SsoLogins = (props: ISsoLogins) => {
-  const isLightTheme = props.theme === 'light';
+  const isLightTheme = props.theme === THEME.light;
 
   return (
     <View style={styles.ssoLogoContainer}>
+      <IconWrapper isLightTheme={isLightTheme} path={LOGO.FACEBOOK_LOGO} />
+      <IconWrapper isLightTheme={isLightTheme} path={LOGO.GOOGLE_LOGO} />
       <IconWrapper
         isLightTheme={isLightTheme}
-        path={require('../../assets/images/facebook-logo.png')}
-      />
-      <IconWrapper
-        isLightTheme={isLightTheme}
-        path={require('../../assets/images/google-logo.png')}
-      />
-      <IconWrapper
-        isLightTheme={isLightTheme}
-        path={
-          isLightTheme
-            ? require('../../assets/images/apple-logo-dark.png')
-            : require('../../assets/images/apple-logo.png')
-        }
+        path={isLightTheme ? LOGO.APPLE_LOGO.DARK : LOGO.APPLE_LOGO.LIGHT}
       />
     </View>
   );

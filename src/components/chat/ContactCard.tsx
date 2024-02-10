@@ -2,8 +2,13 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {dispayPictureSize} from '../../utils/constants/dimentions';
 import {POPPINS} from '../../utils/constants/fonts';
+import Feather from 'react-native-vector-icons/Feather';
 
-const ContactCard = () => {
+interface IContactCard {
+  name: string;
+  status: string;
+}
+const ContactCard = (props: IContactCard) => {
   return (
     <View style={styles.container}>
       <Image
@@ -16,8 +21,9 @@ const ContactCard = () => {
             color: 'black',
             fontFamily: POPPINS.Medium,
             fontSize: 20,
+            lineHeight: 25,
           }}>
-          Alex Linderson
+          {props.name }
         </Text>
         <Text
           style={{
@@ -26,7 +32,7 @@ const ContactCard = () => {
             fontSize: 12,
             opacity: 0.6,
           }}>
-          How are you today sds ds d s d sd
+          {props.status }
         </Text>
       </View>
       <View style={styles.infoWrapper}>
@@ -58,6 +64,21 @@ const ContactCard = () => {
           </Text>
         </View>
       </View>
+      {/* <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <Feather
+          name="phone"
+          size={24}
+          color={'black'}
+          style={{
+            marginRight: 15,
+          }}
+        />
+        <Feather name="video" size={24} color={'black'} />
+      </View> */}
     </View>
   );
 };
@@ -73,17 +94,18 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     // alignItems: 'center',
-    marginBottom: 20,
+    // marginBottom: 20,
   },
   textWrapper: {
     paddingHorizontal: 15,
     flex: 1,
+    justifyContent:'center'
     // backgroundColor: 'green',
   },
   infoWrapper: {
     // height: '100%',
     // backgroundColor: 'red',
     alignItems: 'flex-end',
-    justifyContent:'space-evenly'
+    justifyContent: 'space-evenly',
   },
 });

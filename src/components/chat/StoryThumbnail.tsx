@@ -4,7 +4,6 @@ import React from 'react';
 const StoryThumbnail = () => {
   return (
     <>
-      {/*  */}
       <View
         style={{
           borderWidth: 2,

@@ -1,6 +1,11 @@
-const THEME = {
-  LIGHT: 'light',
-  DARK: 'dark',
-};
+enum THEME {
+  light,
+  dark,
+}
 
-export {THEME};
+enum CHAT_POSITION_TYPE{
+  left,
+  right
+}
+
+export {THEME, CHAT_POSITION_TYPE};

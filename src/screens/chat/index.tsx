@@ -2,9 +2,10 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../../utils/constants/colors';
-import ChatList from './ChatList';
+import ContactList from './ContactList';
 import Header from './Header';
 import StoriesList from './StoriesList';
+import { contactListContainerBorderRadius } from '../../utils/constants/dimentions';
 
 const Chat = () => {
   return (
@@ -16,12 +17,12 @@ const Chat = () => {
         COLORS.gradiant.navy_blue.lighter,
       ]}
       style={styles.headerWrapper}>
-      <View style={{paddingVertical: 20, paddingHorizontal: 20}}>
+      <View style={styles.storyContainer}>
         <Header />
-        <StoriesList/>
+        <StoriesList />
       </View>
       <View style={styles.chatList}>
-        <ChatList />
+        <ContactList />
       </View>
     </LinearGradient>
   );
@@ -31,15 +32,15 @@ export default Chat;
 
 const styles = StyleSheet.create({
   headerWrapper: {
-    backgroundColor: 'blue',
     flex: 1,
   },
   chatList: {
-    backgroundColor: 'white',
+    backgroundColor: COLORS.white,
     flex: 1,
-    borderTopEndRadius: 50,
-    borderTopStartRadius: 50,
+    borderTopEndRadius: contactListContainerBorderRadius,
+    borderTopStartRadius: contactListContainerBorderRadius,
     paddingVertical: 35,
     paddingHorizontal: 20,
   },
+  storyContainer: {paddingVertical: 20, paddingHorizontal: 20},
 });

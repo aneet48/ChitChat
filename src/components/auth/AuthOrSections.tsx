@@ -2,13 +2,15 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../utils/constants/colors';
 import {POPPINS} from '../../utils/constants/fonts';
+import { Ttheme } from '../../interfaces';
+import { THEME } from '../../utils/constants';
 
 interface IAuthOrSections {
-  theme?: 'light' | 'dark';
+  theme?: Ttheme;
 }
 
 const AuthOrSections = (props: IAuthOrSections) => {
-  const isLightTheme = props.theme === 'light';
+  const isLightTheme = props.theme === THEME.light;
   return (
     <View style={styles.barWrapper}>
       <View style={[styles.bar, isLightTheme ? styles.barLight : {}]} />
