@@ -3,7 +3,7 @@ import React from 'react';
 import Auth from './src/screens/auth/index';
 import Login from './src/screens/auth/Login';
 import SignUp from './src/screens/auth/SignUp';
-import Chat from './src/screens/chat/index';
+import Chat from './src/screens/chat/Chat';
 
 const App = () => {
   return <Chat />;

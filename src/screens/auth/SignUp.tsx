@@ -16,7 +16,7 @@ const SignUp = () => {
           Get chatting with friends and family today by signing up for our chat
           app!
         </Text>
-        <View style={{marginTop: 30}}>
+        <View style={styles.inputsWrapper}>
           <View style={styles.inputWrapper}>
             <TextInput title="Your name" />
           </View>
@@ -72,4 +72,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   loginTextWrapper: {fontFamily: POPPINS.Regular, fontSize: 14},
+  inputsWrapper: {marginTop: 30},
 });

@@ -1,12 +1,15 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {dispayPictureSize} from '../../utils/constants/dimentions';
 import {POPPINS} from '../../utils/constants/fonts';
 import Feather from 'react-native-vector-icons/Feather';
+import ChatInfoWrapper from './ChatInfoWrapper';
+import ContactCallWrapper from './ContactCallWrapper';
 
 interface IContactCard {
   name: string;
   status: string;
+  rightContainer?: React.ReactNode
 }
 const ContactCard = (props: IContactCard) => {
   return (
@@ -16,69 +19,12 @@ const ContactCard = (props: IContactCard) => {
         style={styles.displayPicture}
       />
       <View style={styles.textWrapper}>
-        <Text
-          style={{
-            color: 'black',
-            fontFamily: POPPINS.Medium,
-            fontSize: 20,
-            lineHeight: 25,
-          }}>
-          {props.name }
-        </Text>
-        <Text
-          style={{
-            color: '#797C7B',
-            fontFamily: POPPINS.Regular,
-            fontSize: 12,
-            opacity: 0.6,
-          }}>
-          {props.status }
-        </Text>
+        <Text style={styles.contactName}>{props.name}</Text>
+        <Text style={styles.contactStatus}>{props.status}</Text>
       </View>
-      <View style={styles.infoWrapper}>
-        <Text
-          style={{
-            color: '#797C7B',
-            fontFamily: POPPINS.Regular,
-            fontSize: 12,
-            opacity: 0.6,
-          }}>
-          2 min ago
-        </Text>
-        <View
-          style={{
-            backgroundColor: '#F04A4C',
-            height: 20,
-            width: 20,
-            borderRadius: 50,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text
-            style={{
-              color: '#ffffff',
-              fontFamily: POPPINS.Black,
-              fontSize: 12,
-            }}>
-            4
-          </Text>
-        </View>
-      </View>
-      {/* <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
-        <Feather
-          name="phone"
-          size={24}
-          color={'black'}
-          style={{
-            marginRight: 15,
-          }}
-        />
-        <Feather name="video" size={24} color={'black'} />
-      </View> */}
+      {props.rightContainer}
+      {/* <ChatInfoWrapper />
+      <ContactCallWrapper/> */}
     </View>
   );
 };
@@ -93,19 +39,23 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    // alignItems: 'center',
-    // marginBottom: 20,
   },
   textWrapper: {
     paddingHorizontal: 15,
     flex: 1,
-    justifyContent:'center'
-    // backgroundColor: 'green',
+    justifyContent: 'center',
   },
-  infoWrapper: {
-    // height: '100%',
-    // backgroundColor: 'red',
-    alignItems: 'flex-end',
-    justifyContent: 'space-evenly',
+ 
+  contactName: {
+    color: 'black',
+    fontFamily: POPPINS.Medium,
+    fontSize: 20,
+    lineHeight: 25,
+  },
+  contactStatus: {
+    color: '#797C7B',
+    fontFamily: POPPINS.Regular,
+    fontSize: 12,
+    opacity: 0.6,
   },
 });

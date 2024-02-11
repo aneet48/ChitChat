@@ -7,7 +7,7 @@ import ChatBlock from '../../components/chat/ChatBlock';
 
 const Chat = () => {
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
+    <View style={styles.container}>
       <Header />
       <ChatBlock />
       <ChatBottomAction></ChatBottomAction>
@@ -17,4 +17,6 @@ const Chat = () => {
 
 export default Chat;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {backgroundColor: COLORS.white, flex: 1},
+});

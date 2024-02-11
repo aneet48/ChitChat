@@ -4,6 +4,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import ContactCard from './ContactCard';
 import {COLORS} from '../../utils/constants/colors';
 import {chatNavBarIcon} from '../../utils/constants/dimentions';
+import ContactCallWrapper from './ContactCallWrapper';
 
 const Header = () => {
   return (
@@ -15,7 +16,11 @@ const Header = () => {
         style={styles.icon}
       />
       <View style={styles.contactCard}>
-        <ContactCard name="Alex Linderson" status="Active now" />
+        <ContactCard
+          name="Alex Linderson"
+          status="Active now"
+          rightContainer={<ContactCallWrapper />}
+        />
       </View>
     </View>
   );
