@@ -5,9 +5,13 @@ import {COLORS} from '../../utils/constants/colors';
 import ContactList from './ContactList';
 import Header from './Header';
 import StoriesList from './StoriesList';
-import { contactListContainerBorderRadius } from '../../utils/constants/dimentions';
+import {contactListContainerBorderRadius} from '../../utils/constants/dimentions';
+import {MessageTabProps} from '../../types/navigationTypes';
 
-const Chat = () => {
+interface IChat {
+  props: MessageTabProps & {};
+}
+const Chat = (props: IChat) => {
   return (
     <LinearGradient
       start={{x: 0, y: 0}}
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopEndRadius: contactListContainerBorderRadius,
     borderTopStartRadius: contactListContainerBorderRadius,
-    paddingVertical: 35,
+    // paddingVertical: 35,
     paddingHorizontal: 20,
   },
   storyContainer: {paddingVertical: 20, paddingHorizontal: 20},

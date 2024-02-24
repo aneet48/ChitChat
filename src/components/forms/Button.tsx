@@ -1,24 +1,22 @@
 import {
-  Pressable,
+  GestureResponderEvent,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
 } from 'react-native';
 import React from 'react';
 import {COLORS} from '../../utils/constants/colors';
 import {POPPINS} from '../../utils/constants/fonts';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface IButton {
   title: string;
-  theme?: 'light' | 'dark';
+  onPress: ((event: GestureResponderEvent) => void) | undefined;
 }
 
-const Button = ({title, theme}: IButton) => {
+const Button = ({title, onPress}: IButton) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <LinearGradient
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -45,7 +43,7 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     borderRadius: 16,
-    width:'100%'
+    width: '100%',
   },
   text: {
     color: 'white',

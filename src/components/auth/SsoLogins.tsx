@@ -3,7 +3,7 @@ import React from 'react';
 import {COLORS} from '../../utils/constants/colors';
 import {LOGO} from '../../utils/constants/images';
 import {THEME} from '../../utils/constants';
-import { Ttheme } from '../../interfaces';
+import { Ttheme } from '../../types';
 
 interface ISsoLogins {
   theme?: Ttheme;

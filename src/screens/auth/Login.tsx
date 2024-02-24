@@ -6,8 +6,20 @@ import {POPPINS} from '../../utils/constants/fonts';
 import {COLORS} from '../../utils/constants/colors';
 import Button from '../../components/forms/Button';
 import TextInput from '../../components/forms/TextInput';
-
+import {THEME} from '../../utils/constants';
+import firebaseAuth from '../../services/firebaseAuth';
+import {useDispatch} from 'react-redux';
+import {setToken} from '../../store/slices/authSlice';
+import {useAppDispatch} from '../../store/hooks';
 const Login = () => {
+  const dispatch = useAppDispatch();
+
+  const handleLogin = async () => {
+    console.log('--reached');
+
+    dispatch(setToken({authToken: '', uid: ''}));
+    // await firebaseAuth.login({email: 'test114@test.com', password: '123456'});
+  };
   return (
     <View style={styles.container}>
       <View style={styles.formWrapper}>
@@ -16,17 +28,17 @@ const Login = () => {
           Welcome back! Sign in to using your social account or email to
           continue
         </Text>
-        <SsoLogins theme="light" />
-        <AuthOrSections theme="light" />
+        <SsoLogins theme={THEME.light} />
+        <AuthOrSections theme={THEME.light} />
         <View style={styles.inputWrapper}>
-          <TextInput title="Your email" keyboardType='email-address' />
+          <TextInput title="Your email" keyboardType="email-address" />
         </View>
         <View style={styles.inputWrapper}>
           <TextInput title="Password" secureTextEntry={true} />
         </View>
       </View>
       <View>
-        <Button title="Log in" theme="light" />
+        <Button title="Log in" onPress={handleLogin} />
         <Pressable>
           <Text style={[styles.buttonText, styles.loginTextWrapper]}>
             Forgot Password?
@@ -44,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
   formWrapper: {},
   heading: {

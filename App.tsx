@@ -1,14 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Auth from './src/screens/auth/index';
-import Login from './src/screens/auth/Login';
-import SignUp from './src/screens/auth/SignUp';
-import Chat from './src/screens/chat/Chat';
+import {Provider} from 'react-redux';
+import {persistor, store} from './src/store/store';
+import Main from './src';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
-  return <Chat />;
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Main />
+      </PersistGate>
+    </Provider>
+  );
 };
 
 export default App;
-
-const styles = StyleSheet.create({});

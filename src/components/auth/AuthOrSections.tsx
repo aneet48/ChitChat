@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../utils/constants/colors';
 import {POPPINS} from '../../utils/constants/fonts';
-import { Ttheme } from '../../interfaces';
+import { Ttheme } from '../../types';
 import { THEME } from '../../utils/constants';
 
 interface IAuthOrSections {

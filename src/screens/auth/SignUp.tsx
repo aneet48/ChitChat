@@ -1,13 +1,34 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import SsoLogins from '../../components/auth/SsoLogins';
-import AuthOrSections from '../../components/auth/AuthOrSections';
 import {POPPINS} from '../../utils/constants/fonts';
 import {COLORS} from '../../utils/constants/colors';
 import Button from '../../components/forms/Button';
 import TextInput from '../../components/forms/TextInput';
+import {firebase} from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+import FirebaseService from '../../services/firebaseAuth';
 
 const SignUp = () => {
+  const handleSingUp =async () => {
+   const result = await FirebaseService.signUp({
+     email: '',
+     password: '',
+     name:''
+   });
+    // const usersRef = firebase.firestore().collection('users');
+    // console.log('---usersRef', usersRef);
+    
+    // auth()
+    //   .createUserWithEmailAndPassword('', '')
+    //   .then(function (userCredential) {
+    //     usersRef.doc(`${userCredential.user.uid}`).set({
+    //       firstName: '',
+    //       lastName: '',
+    //       username: '',
+    //       uid: 123445566,
+    //     });
+    //   });
+  };
   return (
     <View style={styles.container}>
       <View style={styles.formWrapper}>
@@ -32,7 +53,7 @@ const SignUp = () => {
         </View>
       </View>
       <View>
-        <Button title="Create an account" theme="light" />
+        <Button title="Create an account" onPress={handleSingUp} />
       </View>
     </View>
   );
@@ -45,7 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
   formWrapper: {},
   heading: {

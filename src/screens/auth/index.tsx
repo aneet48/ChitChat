@@ -1,23 +1,25 @@
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {POPPINS} from '../../utils/constants/fonts';
 import {COLORS} from '../../utils/constants/colors';
 import SsoLogins from '../../components/auth/SsoLogins';
 import AuthOrSections from '../../components/auth/AuthOrSections';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../App';
+import { GRADIANT_BG_IMAGE } from '../../utils/constants/images';
 
-const index = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
+
+const Auth = ({navigation}: Props) => {
+  const goToLogin = () => {
+    navigation.navigate('Login');
+  };
+  const goToSignUp = () => {
+    navigation.navigate('SignUp');
+  };
   return (
-    <ImageBackground
-      style={styles.container}
-      source={require('../../assets/images/bg.jpg')}>
+    <ImageBackground style={styles.container} source={GRADIANT_BG_IMAGE}>
       <View>
         <Text style={styles.header}>Connect friends easily & quickly</Text>
         <Text style={styles.subheader}>
@@ -29,24 +31,26 @@ const index = () => {
 
         <Pressable
           android_ripple={{color: Colors.darkGray, borderless: false}}
-          style={styles.signInBtn}>
+          style={styles.signInBtn}
+          onPress={goToSignUp}>
           <Text style={styles.buttonText}>Sign up with email</Text>
         </Pressable>
-
       </View>
       <View>
-        <Pressable>
-          <Text style={[styles.buttonText, styles.loginTextWrapper]}>
-            Existing account?
-            <Text style={styles.logInText}> Log In</Text>
-          </Text>
+        <Pressable onPress={goToLogin}>
+          <View style={styles.loginWrapper}>
+            <Text style={[styles.buttonText, styles.loginTextWrapper]}>
+              Existing account?
+            </Text>
+            <Text style={[styles.buttonText, styles.logInText]}>Log In</Text>
+          </View>
         </Pressable>
       </View>
     </ImageBackground>
   );
 };
 
-export default index;
+export default Auth;
 
 const styles = StyleSheet.create({
   container: {
@@ -75,10 +79,15 @@ const styles = StyleSheet.create({
     fontFamily: POPPINS.Medium,
   },
   loginTextWrapper: {fontFamily: POPPINS.Regular, fontSize: 14},
-  logInText: {fontFamily: POPPINS.Black},
+  logInText: {fontFamily: POPPINS.Black, marginLeft: 10},
   signInBtn: {
     backgroundColor: COLORS.lightgray2,
     borderRadius: 16,
     padding: 13,
+  },
+  loginWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
