@@ -11,7 +11,7 @@ import {MessageTabProps} from '../../types/navigationTypes';
 interface IChat {
   props: MessageTabProps & {};
 }
-const Chat = (props: IChat) => {
+const Chat = (props: IChat["props"]) => {
   return (
     <LinearGradient
       start={{x: 0, y: 0}}

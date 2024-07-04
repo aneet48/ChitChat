@@ -6,8 +6,8 @@ import SsoLogins from '../../components/auth/SsoLogins';
 import AuthOrSections from '../../components/auth/AuthOrSections';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../../App';
 import { GRADIANT_BG_IMAGE } from '../../utils/constants/images';
+import { RootStackParamList } from '../../types/navigationTypes';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
 

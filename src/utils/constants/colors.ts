@@ -19,6 +19,7 @@ const COLORS = {
     chatBubbleRadius: 12,
     msgInputBackgroundColor: '#f4f6f6',
   },
+  error: '#FF026C',
 };
 
 export {COLORS};

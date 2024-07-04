@@ -10,9 +10,7 @@ import { revokeToken } from '../../store/slices/authSlice';
 
 const Header = () => {
   const dispatch  = useAppDispatch()
-  const logout = () =>{
-    console.log('--clicked');
-    
+  const logout = () =>{    
     dispatch(revokeToken())
   }
   return (

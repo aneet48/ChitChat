@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import React from 'react';
 import {COLORS} from '../../utils/constants/colors';
@@ -12,22 +13,25 @@ import LinearGradient from 'react-native-linear-gradient';
 interface IButton {
   title: string;
   onPress: ((event: GestureResponderEvent) => void) | undefined;
+  disabled?: boolean;
 }
 
-const Button = ({title, onPress}: IButton) => {
+const Button = ({title, onPress, disabled}: IButton) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <LinearGradient
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 0}}
-        colors={[
-          COLORS.gradiant.navy_blue.dark,
-          COLORS.gradiant.navy_blue.lighter,
-        ]}
-        style={styles.gradient}>
-        <Text style={styles.text}>{title}</Text>
-      </LinearGradient>
-    </TouchableOpacity>
+    <View style={disabled ? styles.disabled : null}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={[
+            COLORS.gradiant.navy_blue.dark,
+            COLORS.gradiant.navy_blue.lighter,
+          ]}
+          style={styles.gradient}>
+          <Text style={styles.text}>{title}</Text>
+        </LinearGradient>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -50,4 +54,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: POPPINS.Bold,
   },
+  disabled: {opacity: 0.6, pointerEvents: 'none'},
 });

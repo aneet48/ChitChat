@@ -23,7 +23,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 const Main = () => {
   const auth = useAppSelector(state => state.auth);
-  console.log('---authToken', auth);
 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -44,7 +43,7 @@ const Main = () => {
   };
   return (
     <NavigationContainer>
-      {!auth?.authToken ? (
+      {!auth?.uid ? (
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
@@ -90,8 +89,8 @@ const Main = () => {
             tabBarStyle: {height: 80, paddingBottom: 10, paddingTop: 10},
           })}>
           <Tab.Screen name="Message" component={Chat} />
-          <Tab.Screen name="Calls" component={Chat} />
-          <Tab.Screen name="Contacts" component={Chat} />
+          {/* <Tab.Screen name="Calls" component={Chat} />
+          <Tab.Screen name="Contacts" component={Chat} /> */}
           <Tab.Screen name="Settings" component={Settings} />
         </Tab.Navigator>
       )}

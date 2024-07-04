@@ -24,6 +24,19 @@ class FirebaseService {
           ...userData,
           uid: userCredential.user.uid,
         });
+        return {
+          success: true,
+          err:null
+        };
+      })
+      .catch(err => {
+        return {
+          success: false,
+          err:
+            err.code === 'auth/email-already-in-use'
+              ? 'Email already exist'
+              : 'There is some issue with the sign up',
+        };
       });
   }
 
@@ -32,10 +45,18 @@ class FirebaseService {
     return this.auth
       .signInWithEmailAndPassword(email, password)
       .then(function (userCredential) {
-        console.log('---userCredential', userCredential);
+        return {
+          success: true,
+          userCredential,
+          err:null
+        };
       })
       .catch(err => {
-        console.log('---err', err);
+        return {
+          success: false,
+          userCredential:null,
+          err: err.code === 'auth/invalid-credential'?'Login email or password is incorrect':'There was some issue while logging in',
+        };
       });
   }
 
