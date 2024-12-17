@@ -22,7 +22,7 @@ const Chat = (props: IChat["props"]) => {
       ]}
       style={styles.headerWrapper}>
       <View style={styles.storyContainer}>
-        <Header />
+        {/* <Header /> */}
         <StoriesList />
       </View>
       <View style={styles.chatList}>

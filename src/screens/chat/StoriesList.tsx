@@ -6,6 +6,9 @@ const StoriesList = () => {
   const arr = [...Array(10).keys()];
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={{paddingHorizontal: 10}}>
+        <StoryThumbnail isAddThumbnail />
+      </TouchableOpacity>
       <FlatList
         horizontal
         showsVerticalScrollIndicator={false}
@@ -25,5 +28,6 @@ export default StoriesList;
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
+    flexDirection: 'row',
   },
 });

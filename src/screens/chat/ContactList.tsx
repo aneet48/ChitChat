@@ -1,12 +1,4 @@
-import {
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import ContactCard from '../../components/chat/ContactCard';
 import ChatInfoWrapper from '../../components/chat/ChatInfoWrapper';

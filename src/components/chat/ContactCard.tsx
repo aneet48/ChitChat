@@ -1,10 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import {dispayPictureSize} from '../../utils/constants/dimentions';
 import {POPPINS} from '../../utils/constants/fonts';
-import Feather from 'react-native-vector-icons/Feather';
-import ChatInfoWrapper from './ChatInfoWrapper';
-import ContactCallWrapper from './ContactCallWrapper';
 
 interface IContactCard {
   name: string;
@@ -23,8 +20,6 @@ const ContactCard = (props: IContactCard) => {
         <Text style={styles.contactStatus}>{props.status}</Text>
       </View>
       {props.rightContainer}
-      {/* <ChatInfoWrapper />
-      <ContactCallWrapper/> */}
     </View>
   );
 };

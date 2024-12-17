@@ -36,7 +36,7 @@ const Main = () => {
   }
 
   const authStackHeaderStyle: NativeStackNavigationOptions = {
-    headerShown: true,
+    headerShown: false,
     headerTintColor: COLORS.textDark,
     headerTitle: '',
     headerShadowVisible: false,
@@ -66,6 +66,7 @@ const Main = () => {
       ) : (
         <Tab.Navigator
           screenOptions={({route}) => ({
+            headerShown:false,
             tabBarIcon: ({focused, color, size}) => {
               let iconName = 'chatbubble-ellipses-outline';
               let IconComponent = Ionicons;
